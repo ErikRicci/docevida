@@ -1,17 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doce Vida</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.1/dist/email.min.js"></script>
 </head>
+
 <body>
-    <form method="POST" name="Message" netlify>
-        <label for="name">NOME</label><br>
-        <input id="name" type="text"><br>
-        <label for="mensagem">MENSAGEM</label><br>
-        <textarea id="mensagem" style="height: 20vh;"></textarea><br>
-        <input type="submit" value="SUBMIT">
+    <form id="contact-form">
+        <input style="width: 15vw;" type="text" name="nome_cliente" placeholder="Insira seu nome...">
+        <input id="input-phone" style="width: 15vw;" type="text" name="whatsapp_cliente"
+            placeholder="Insira seu whatsapp..."><br>
+        <textarea style="width: 30.5vw; height: 12vh; margin-top: 1vh; resize: none;" name="pedido"
+            placeholder="Descreva seu pedido..."></textarea>
+        <input style="display: block;" type="submit" value="Enviar meu pedido!">
+
     </form>
+
+    <script src="cleave.js"></script>
+    <script src="cleave-phone.br.js"></script>
+
+    <script>
+
+        var token = 'user_sbzp5UcFqau2nrz8VvqZf';
+
+        emailjs.init(token);
+
+        window.onload = function () {
+            document.getElementById('contact-form').addEventListener('submit', function (event) {
+                event.preventDefault();
+                // generate the contact number value
+                emailjs.sendForm('service_y6xh2q5', 'contact_form', this);
+            });
+        }
+
+        var cleave = new Cleave('#input-phone', {
+            phone: true,
+            phoneRegionCode: 'BR'
+        });
+
+        $('#select-country').change(function () {
+            cleave.setPhoneRegionCode(this.value);
+            cleave.setRawValue('');
+        });
+    </script>
+
+
 </body>
+
 </html>
