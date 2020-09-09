@@ -5,38 +5,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doce Vida</title>
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.1/dist/email.min.js"></script>
 </head>
 
 <body>
-    <form id="contact-form">
-        <input style="width: 15vw;" type="text" name="nome_cliente" placeholder="Insira seu nome...">
-        <input id="input-phone" style="width: 15vw;" type="text" name="whatsapp_cliente"
-            placeholder="Insira seu whatsapp..."><br>
-        <textarea style="width: 30.5vw; height: 12vh; margin-top: 1vh; resize: none;" name="pedido"
-            placeholder="Descreva seu pedido..."></textarea>
-        <input style="display: block;" type="submit" value="Enviar meu pedido!">
 
-    </form>
+    <div style="background-color: white; width: inherit; height: 20vh; margin: auto; border-radius: 12px;">
+        <img style="height: inherit; display: block; margin: auto;" src="logo.jpg">
+    </div>
+
+    <div class="central" id="pedirdiv">
+        <label>FAÇA AQUI SEU PEDIDO!</label>
+        <form id="contact-form">
+            <input required type="text" name="nome_cliente" placeholder="Insira seu nome..."><br>
+            <input required id="input-phone" type="text" name="whatsapp_cliente"
+                placeholder="Insira seu whatsapp..."><br>
+            <textarea required class='autoExpand' style="resize: none;" name="pedido"
+                placeholder="Descreva seu pedido..."></textarea><br>
+            <input type="submit" value="Enviar meu pedido!">
+        </form>
+    </div>
+
+    <div class="central" id="rotate" hidden>
+        <img style="width: 20vw;" src="carregando.png">
+    </div>
 
     <script src="cleave.js"></script>
     <script src="cleave-phone.br.js"></script>
 
     <script>
-
+        //TOKEN PRA CONEXAO
         var token = 'user_sbzp5UcFqau2nrz8VvqZf';
-
-        emailjs.init(token);
-
+        //BOTAO PRA ENVIAR FORM
         window.onload = function () {
             document.getElementById('contact-form').addEventListener('submit', function (event) {
                 event.preventDefault();
-                // generate the contact number value
-                emailjs.sendForm('service_y6xh2q5', 'contact_form', this);
+                document.getElementById('pedirdiv').hidden = 'true';
+                document.getElementById('rotate').removeAttribute('hidden');
+                enviarPedido();
             });
         }
 
+        //GERAR CLEAVE PRA FORMATAR O NUMERO
         var cleave = new Cleave('#input-phone', {
             phone: true,
             phoneRegionCode: 'BR'
@@ -46,6 +58,46 @@
             cleave.setPhoneRegionCode(this.value);
             cleave.setRawValue('');
         });
+
+
+        //AJAX PARA TER RESPOSTAS
+
+        var enviarPedido = () => {
+
+            var nome = document.getElementById('contact-form').nome_cliente.value;
+            var wpp = document.getElementById('contact-form').whatsapp_cliente.value;
+            var pedido = document.getElementById('contact-form').pedido.value;
+
+            console.log(`${nome} ${wpp} ${pedido}`);
+
+            var data = {
+                service_id: 'service_y6xh2q5',
+                template_id: 'contact_form',
+                user_id: token,
+                template_params: {
+                    'nome_cliente': nome,
+                    'whatsapp_cliente': wpp,
+                    'pedido': pedido,
+                }
+            };
+
+            $.ajax('https://api.emailjs.com/api/v1.0/email/send',
+                {
+                    type: 'POST',
+                    data: JSON.stringify(data),
+                    contentType: 'application/json',
+                })
+                .done(function () {
+                    alert('Seu pedido foi enviado e já está sendo preparado!');
+                    document.getElementById('rotate').hidden = 'true';
+                    document.getElementById('pedirdiv').removeAttribute('hidden');
+                })
+                .fail(function (error) {
+                    alert('Opa, não foi possível fazer seu pedido!');
+                    document.getElementById('rotate').hidden = 'true';
+                    document.getElementById('pedirdiv').removeAttribute('hidden');
+                });
+        }
     </script>
 
 

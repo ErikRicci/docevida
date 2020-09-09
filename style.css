@@ -1,0 +1,45 @@
+body {    
+    background-color: #f8cbe2;
+}
+
+.central {
+    margin: auto;
+    margin-top: 2vh;
+    padding: 10px;
+    text-align: center;
+}
+
+input, textarea {
+    border-radius: 10px;
+    margin-bottom: 2vh;
+    width:50vw;
+    padding: 1vw;
+}
+
+input {
+    border-style:groove;
+}
+
+textarea {
+    height: 8vh;
+}
+
+#rotate{
+    transform-origin: center center;
+    -webkit-animation: rotation 2s linear infinite;
+    -moz-animation: rotation 2s linear infinite;
+    -ms-animation: rotation 2s linear infinite;
+}
+
+@-webkit-keyframes rotation {
+    0%   { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+@-moz-keyframes rotation {
+    0%   { -moz-transform: rotate(0deg); }
+    100% { -moz-transform: rotate(360deg); }
+}
+@-ms-keyframes rotation {
+    0%   { -ms-transform: rotate(0deg); }
+    100% { -ms-transform: rotate(360deg); }
+}
