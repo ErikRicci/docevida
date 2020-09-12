@@ -1,5 +1,11 @@
-body {    
-    background-color: #f8cbe2;
+@import url("anim.css");
+
+* {
+    font-family: Kreon;
+}
+
+body {
+    background-color: #f4dada;
 }
 
 .central {
@@ -9,37 +15,50 @@ body {
     text-align: center;
 }
 
-input, textarea {
+input,
+textarea {
     border-radius: 10px;
     margin-bottom: 2vh;
-    width:50vw;
+    width: 50vw;
     padding: 1vw;
 }
 
 input {
-    border-style:groove;
+    border-style: groove;
 }
 
 textarea {
     height: 8vh;
 }
 
-#rotate{
+#rotate {
     transform-origin: center center;
     -webkit-animation: rotation 2s linear infinite;
     -moz-animation: rotation 2s linear infinite;
     -ms-animation: rotation 2s linear infinite;
 }
 
-@-webkit-keyframes rotation {
-    0%   { -webkit-transform: rotate(0deg); }
-    100% { -webkit-transform: rotate(360deg); }
+button {
+    background-color: #ffb6b9;
+    border-radius: 12px;
+    border: 0px solid #a658a6;
+    display: inline-block;
+    cursor: pointer;
+    color: black;
+    font-size: 20px;
+    padding: 18px 51px;
+    text-decoration: none;
+    box-shadow: 3px 4px 0px 0px #899599;
 }
-@-moz-keyframes rotation {
-    0%   { -moz-transform: rotate(0deg); }
-    100% { -moz-transform: rotate(360deg); }
+
+button:hover {
+    animation-name: in;
+    animation-duration: .4s;
+    animation-fill-mode: forwards;
 }
-@-ms-keyframes rotation {
-    0%   { -ms-transform: rotate(0deg); }
-    100% { -ms-transform: rotate(360deg); }
+
+button:not(:hover) {
+    animation-name: out;
+    animation-duration: .6s;
+    animation-direction: forwards;
 }
