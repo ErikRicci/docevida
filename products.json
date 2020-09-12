@@ -13,12 +13,13 @@
 			"name" : "Cupcake",
 			"price" : "6.20",
 			"options" : [
-				{ "Size" : "Normal (massa branca),Chocolate,Ninho" },
+				{ "Sabor" : "Normal (massa branca),Chocolate,Ninho" },
 				{ "Recheio" : "Sem Recheio,Chantily, Chocolate" },
+				{ "Cobertura" : "Sem Cobertura,Chantily, Chocolate" },
 			    { "OneOfAKind" : true }
 			],
 			"image" : "https://upload.wikimedia.org/wikipedia/commons/d/dc/Cupcakezinho.jpg",
-			"description" : "This is a really cool blue T-shirt"
+			"description" : "Bolo de massa simples, com recheios diversos e coberturas à sua escolha."
 		}
 	]
 }

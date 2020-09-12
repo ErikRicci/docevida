@@ -152,12 +152,12 @@ select {
     margin: 15px 0;
 }
 a.simpleCart_empty {
-    color: #cdcdcd;
+    color: #a7a7a7;
     text-transform: uppercase;
     font-size: 14px;
 }
 a.simpleCart_empty:hover {
-    color: #777;
+    color: rgb(100, 100, 100);
 }
 .simpleCart_checkout {
     margin: 12px 0 0;
