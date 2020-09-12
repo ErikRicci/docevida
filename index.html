@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doce Vida</title>
+    <title>Doce Vida 🧁</title>
     <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.1/dist/email.min.js"></script>
@@ -18,14 +18,12 @@
 
     <div class="central" id="pedirdiv">
         <label>FAÇA AQUI SEU PEDIDO!</label>
-        <form id="contact-form">
-            <input required type="text" name="nome_cliente" placeholder="Insira seu nome..."><br>
-            <input required id="input-phone" type="text" name="whatsapp_cliente"
-                placeholder="Insira seu whatsapp..."><br>
-            <textarea required class='autoExpand' style="resize: none;" name="pedido"
-                placeholder="Descreva seu pedido..."></textarea><br>
-            <input type="submit" value="Enviar meu pedido!">
+
+        <!-- <button onclick="whatsappEnviar()">Enviar pedido via whatsapp</button> -->
+        <form action="test.php">
+            <input type="submit" value="teste">
         </form>
+
     </div>
 
     <div class="central" id="rotate" hidden>
@@ -36,71 +34,26 @@
     <script src="cleave-phone.br.js"></script>
 
     <script>
-        //TOKEN PRA CONEXAO
-        var token = 'user_sbzp5UcFqau2nrz8VvqZf';
-        //BOTAO PRA ENVIAR FORM
-        window.onload = function () {
-            document.getElementById('contact-form').addEventListener('submit', function (event) {
-                event.preventDefault();
-                document.getElementById('pedirdiv').hidden = 'true';
-                document.getElementById('rotate').removeAttribute('hidden');
-                enviarPedido();
-            });
-        }
-
-        //GERAR CLEAVE PRA FORMATAR O NUMERO
-        var cleave = new Cleave('#input-phone', {
-            phone: true,
-            phoneRegionCode: 'BR'
-        });
-
-        $('#select-country').change(function () {
-            cleave.setPhoneRegionCode(this.value);
-            cleave.setRawValue('');
-        });
-
-
-        //AJAX PARA TER RESPOSTAS
-
-        var enviarPedido = () => {
+        //TESTE WHATSAPP
+        var whatsappEnviar = () => {
 
             var nome = document.getElementById('contact-form').nome_cliente.value;
-            var wpp = document.getElementById('contact-form').whatsapp_cliente.value;
             var pedido = document.getElementById('contact-form').pedido.value;
 
-            console.log(`${nome} ${wpp} ${pedido}`);
 
-            var data = {
-                service_id: 'service_y6xh2q5',
-                template_id: 'contact_form',
-                user_id: token,
-                template_params: {
-                    'nome_cliente': nome,
-                    'whatsapp_cliente': wpp,
-                    'pedido': pedido,
-                }
-            };
+            var texto = 'Olá,meu nome é ' + nome + '! Gostaria de fazer um pedido.PEDIDO: ' + pedido;
 
-            $.ajax('https://api.emailjs.com/api/v1.0/email/send',
-                {
-                    type: 'POST',
-                    data: JSON.stringify(data),
-                    contentType: 'application/json',
-                })
-                .done(function () {
-                    alert('Seu pedido foi enviado e já está sendo preparado!');
-                    document.getElementById('rotate').hidden = 'true';
-                    document.getElementById('pedirdiv').removeAttribute('hidden');
-                })
-                .fail(function (error) {
-                    alert('Opa, não foi possível fazer seu pedido!');
-                    document.getElementById('rotate').hidden = 'true';
-                    document.getElementById('pedirdiv').removeAttribute('hidden');
-                });
+
+            var href = 'https://api.whatsapp.com/send?phone=5519982492037&text=' + texto + '&lang=pt_br';
+
+            window.location.href = href;
+        }
+
+        //AJAX PARA TER RESPOSTAS
+        var AJAXemJS = () => {
+            window.location.href = 'test.php';
         }
     </script>
-
-
 </body>
 
 </html>
