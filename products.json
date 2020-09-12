@@ -1,0 +1,24 @@
+{
+	"products" : [
+		{
+			"name" : "Brownie",
+			"price" : "5.80",
+			"options" : [
+				{ "Sabor" : "Normal (chocolate),Castanha de Caju,Doce de Leite" }
+			],
+			"image" : "https://upload.wikimedia.org/wikipedia/commons/b/bf/Browniezinho.jpg",
+			"description" : "Um famoso bolo de chocolate americano. Tem uma casquinha crocante por cima."
+		},
+		{
+			"name" : "Cupcake",
+			"price" : "6.20",
+			"options" : [
+				{ "Size" : "Normal (massa branca),Chocolate,Ninho" },
+				{ "Recheio" : "Sem Recheio,Chantily, Chocolate" },
+			    { "OneOfAKind" : true }
+			],
+			"image" : "https://upload.wikimedia.org/wikipedia/commons/d/dc/Cupcakezinho.jpg",
+			"description" : "This is a really cool blue T-shirt"
+		}
+	]
+}
