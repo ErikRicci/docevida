@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: #f4dada;
+    background-color: #dbaaaa;
 }
 
 .central {
@@ -38,6 +38,41 @@ textarea {
     -ms-animation: rotation 2s linear infinite;
 }
 
+#carrinho-button {
+    margin-left: auto;
+    margin-right: 1vw;
+    background-color: rgb(245, 208, 214);
+    height: fit-content;
+    width: fit-content;
+    padding: 2px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+#carrinho-button:selection {
+    animation-name: hide;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+}
+
+button {
+    cursor: pointer;
+}
+
+#wpp-button:hover {
+    animation-name: in;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+}
+
+#wpp-button:not(:hover) {
+    animation-name: out;
+    animation-duration: 0.4s;
+    animation-direction: forwards;
+}
+
 button {
     background-color: #ffb6b9;
     border-radius: 12px;
@@ -49,16 +84,4 @@ button {
     padding: 18px 51px;
     text-decoration: none;
     box-shadow: 3px 4px 0px 0px #899599;
-}
-
-button:hover {
-    animation-name: in;
-    animation-duration: .4s;
-    animation-fill-mode: forwards;
-}
-
-button:not(:hover) {
-    animation-name: out;
-    animation-duration: .6s;
-    animation-direction: forwards;
 }

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doce Vida 🧁</title>
     <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+    <link rel="stylesheet" href="/external/flickity.css" media="screen">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.1/dist/email.min.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Kreon' rel='stylesheet'>
@@ -13,32 +14,59 @@
 
 <body>
 
-    <div style="background-color: white; display: grid;
-    grid-template-areas:
-      'title'
-      'logo';
-    grid-gap: 1vh;
-    background-color: white;
-    border-radius: 8px;">
-        <img style="height: 20vh; grid-area: logo;" src="logo.jpg">
-        <label style="background-color: rgb(248, 188, 188); grid-area: title;">DOCE VIDA</label>
+    <div style="background-color: rgb(240, 220, 220); height: 90vh; border-radius: 12px;">
+        <!-- Título, com logo -->
+        <div style="background-color:rgb(255, 225, 225); border-radius: 12px; position: relative">
+            <img style="height: 20vh; left: 50%; transform: translate(-50%); position: relative; margin-top: 10px;"
+                src="logo.jpg">
+            <div style="background-color: rgb(209, 147, 153); text-align: right; padding-top: 5px;padding-bottom: 5px;">
+                <div id="carrinho-button" onclick="getCarrinho()">
+                </div>
+            </div>
+        </div>
+        <br><br>
+
+        <!-- Body2 vai alocar as páginas -->
+
+        <div id="body2">
+
+        </div>
     </div>
 
-    <div class="central" id="pedirdiv">
-        <label>FAÇA AQUI SEU PEDIDO!</label><br><br>
+    <!-- Procurar produtos -->
+    <script>
+        var totalProdutos =
+            `<img style="height: 4vh; transform: translate(0%, 10%);" src="lojinha.png" alt="carrinho">
+               COMPRAR MAIS!`;
+
+        var procurarProdutos =
+            `
+            <div>
+            </div>
+            `;
+    </script>
+
+    <!-- Finalizar pedido -->
+    <script>
+        var comprarProdutos =
+            `<img style="height: 4vh; transform: translate(0%, 10%);" src="carrinho.png" alt="carrinho">
+                TOTAL: R$ 0.00`;
+
+        var finalPedido =
+            `<div class="central" id="pedirdiv">
         <input placeholder="Digite seu nome" type="text" id="name" name="name">
-        <textarea placeholder="Adicione alguns itens ao seu carrinho" name="pedido" id="pedido" cols="30" rows="10"
-            style="resize: none;"></textarea><br>
-        <button onclick="whatsappEnviar()">Enviar pedido via whatsapp</button>
-
-    </div>
-
-    <div class="central" id="rotate" hidden>
-        <img style="width: 20vw;" src="carregando.png">
-    </div>
+        <textarea placeholder="Quando adicionar alguns itens ao seu carrinho, eles aparecerão aqui :)" name="pedido" id="pedido" cols="30" rows="10"
+            style="resize: none;" readonly></textarea><br>
+        <button id="wpp-button" onclick="whatsappEnviar()">Enviar pedido via whatsapp</button>
+        </div>
+        <div class="central" id="rotate" hidden>
+            <img style="width: 20vw;" src="carregando.png">
+        </div>`;
+    </script>
 
     <script src="cleave.js"></script>
     <script src="cleave-phone.br.js"></script>
+    <script src="/external/flickity.pkgd.min.js"></script>
     <script src="script.js"></script>
 </body>
 
