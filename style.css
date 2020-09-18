@@ -83,5 +83,53 @@ button {
     box-shadow: 3px 4px 0px 0px #899599;
 }
 
-#main {
+a {
+    cursor: pointer;
+    background-color: #f5cece;
 }
+
+a:hover {
+    background-color: #ff9191;
+}
+
+#grid-carrinho {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+}
+
+#item-nome {
+    text-align: center;
+    font-size: 1.6vw;
+}
+
+#item-imagem {
+    background-color: red;
+    margin-left: 10%;
+}
+
+#item-carrinho {
+    position: relative;
+}
+
+#addremove {
+    height: 2vw;
+}
+
+#logoEcarrinho {
+    font-size: 2vw;
+}
+
+@media screen and (max-width: 500px) {
+    #grid-carrinho {
+        grid-template-columns: 50% 50%;
+    }
+    #addremove {
+        height: 5vw;
+    }
+    #item-nome {
+        font-size: 4vw;
+    }
+    #logoEcarrinho {
+        font-size: 4vw;
+    }
+ }

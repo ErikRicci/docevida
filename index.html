@@ -16,45 +16,59 @@
 </head>
 
 <body>
-    <div style="background-color: #f4dada; height: 90vh; border-radius: 12px;">
+    <div style="background-color: #f4dada; height: 70vh; border-radius: 12px;">
         <!-- Título, com logo -->
-        <div style="border-radius: 12px; position: relative">
-            <img style="height: 20vh; left: 50%; transform: translate(-50%); position: relative; margin-top: 10px;"
-                src="logo.jpg">
-            <div style="background-color: #ffb6b9; text-align: right; padding-top: 5px;padding-bottom: 5px;">
+        <div id="logoEcarrinho" style="border-radius: 12px; position: relative;">
+            <img style="height: 20vh; left: 0%; position: relative; margin-top: 10px;"
+                src="images/logo.jpg"> DOCE VIDA - Doces por encomenda
+            <div
+                style="background-color: #89c9b8; text-align: right; padding-top: 5px;padding-bottom: 5px; margin-bottom: 5px;">
                 <div id="carrinho-button" onclick="getCarrinho()">
                 </div>
             </div>
         </div>
-        <br><br>
         <!-- Main vai alocar as páginas -->
         <div id="main" class="carousel">
 
+        </div>
+        <div id="carrinho-compras" style="background-color:#ffffff; border-radius: 12px; height: fit-content;">
+            <div id="carrinho-compras header" style="text-align: center; margin-top: 5px; background-color: #89c9b8;
+            margin-right: auto; margin-left: auto; height: fit-content; padding-left: 10%; padding-right: 10%;">
+                <label id="label-carrinho">Escolha acima o tipo do produto desejado</label>
+            </div>
+            <div id="grid-carrinho">
+                
+            </div>
         </div>
         <div id="main2" style="display: none; visibility: hidden;">
             <div class="central" id="pedirdiv">
                 <input placeholder="Digite seu nome" type="text" id="name" name="name">
                 <textarea placeholder="Quando adicionar alguns itens ao seu carrinho, eles aparecerão aqui :)"
-                    name="pedido" id="pedido" cols="30" rows="10" style="resize: none;" readonly></textarea><br>
+                    name="pedido" id="pedido" style="resize: none; height: 20vh;" readonly></textarea><br>
                 <button id="wpp-button" onclick="whatsappEnviar()">Enviar pedido via whatsapp</button>
             </div>
-            <div class="central" id="rotate" hidden>
-                <img style="width: 20vw;" src="carregando.png">
-            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div style="text-align: center; position: absolute; width: 100vw">
+            Telefone (Whatsapp): (19) 9 8249 - 2037
         </div>
     </div>
+    
 
     <!-- Procurar produtos -->
     <script>
-        var totalProdutos =
-            `<img style="height: 4vh; transform: translate(0%, 10%);" src="lojinha.png" alt="carrinho">
+        var comprarProdutos =
+            `<img style="height: 4vh; transform: translate(0%, 10%);" src="images/lojinha.png" alt="carrinho">
                COMPRAR MAIS!`;
     </script>
 
     <!-- Finalizar pedido -->
     <script>
-        var comprarProdutos =
-            `<img style="height: 4vh; transform: translate(0%, 10%);" src="carrinho.png" alt="carrinho">
+        var totalProdutos =
+            `<img style="height: 4vh; transform: translate(0%, 10%);" src="images/carrinho.png" alt="carrinho">
                 TOTAL: R$ 0.00`;
 
         var finalPedido =
