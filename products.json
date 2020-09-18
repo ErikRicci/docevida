@@ -13,9 +13,9 @@
 			"name" : "Cupcake",
 			"price" : "6.20",
 			"options" : [
-				{ "Sabor" : "Normal (massa branca),Chocolate,Ninho" },
-				{ "Recheio" : "Sem Recheio,Chantily, Chocolate" },
-				{ "Cobertura" : "Sem Cobertura,Chantily, Chocolate" },
+				{ "Sabor" : "Branca,Chocolate,Churros" },
+				{ "Recheio" : "Sem,Chantily,Chocolate" },
+				{ "Cobertura" : "Sem,Chantily,Chocolate" },
 			    { "OneOfAKind" : true }
 			],
 			"image" : "https://upload.wikimedia.org/wikipedia/commons/d/dc/Cupcakezinho.jpg",
