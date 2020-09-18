@@ -1,143 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-
-    <!-- Basic Page Needs
-    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <meta charset="utf-8">
-    <title>Doce Vida - Encomenda de Doces</title>
-    <meta name="description" content="Um site feito com muito amor para a doceria da minha mãe.">
-    <meta name="author" content="Erik Araújo Riccioppo">
-
-    <!-- Mobile Specific Metas
-    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- FONT
-    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <link href="//fonts.googleapis.com/css?family=Grandstander:400,300,600" rel="stylesheet" type="text/css">
-	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
-
-    <!-- CSS
-    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <link rel="stylesheet" href="css/imports.min.css">
-    <link rel="stylesheet" href="css/simpleStore.min.css">
-
-    <!-- Favicon
-    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <link rel="icon" type="image/png" href="images/favicon.png">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doce Vida - Sua vida cada vez mais doce</title>
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.1/dist/email.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Kreon' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick-theme.css">
+    <link href="favicon/cupcake.ico" rel="shortcut icon" type="image/x-icon" />
 </head>
-<body>
 
-    <!-- Primary Page Layout
-    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <div class="container simpleStore">
-        <div class="row">
-            <a class="brand" href="#"></a>
-            <a class="button button-primary u-pull-right simpleStore_viewCart">
-                <i class="fa fa-shopping-cart"></i> Carrinho ❤ <span class="simpleCart_total"></span>
-            </a>
+<body>
+    <div style="background-color: #f4dada; height: 90vh; border-radius: 12px;">
+        <!-- Título, com logo -->
+        <div style="border-radius: 12px; position: relative">
+            <img style="height: 20vh; left: 50%; transform: translate(-50%); position: relative; margin-top: 10px;"
+                src="logo.jpg">
+            <div style="background-color: #ffb6b9; text-align: right; padding-top: 5px;padding-bottom: 5px;">
+                <div id="carrinho-button" onclick="getCarrinho()">
+                </div>
+            </div>
         </div>
-        <div class="simpleStore_container"></div>
-        <div class="simpleStore_cart_container"></div>
+        <br><br>
+        <!-- Main vai alocar as páginas -->
+        <div id="main" class="carousel">
+
+        </div>
+        <div id="main2" style="display: none; visibility: hidden;">
+            <div class="central" id="pedirdiv">
+                <input placeholder="Digite seu nome" type="text" id="name" name="name">
+                <textarea placeholder="Quando adicionar alguns itens ao seu carrinho, eles aparecerão aqui :)"
+                    name="pedido" id="pedido" cols="30" rows="10" style="resize: none;" readonly></textarea><br>
+                <button id="wpp-button" onclick="whatsappEnviar()">Enviar pedido via whatsapp</button>
+            </div>
+            <div class="central" id="rotate" hidden>
+                <img style="width: 20vw;" src="carregando.png">
+            </div>
+        </div>
     </div>
 
-    <!-- Templates
-    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-
-    <!-- Products View -->
-    <script id="products-template" type="x-template">
-        <div class="column">
-            <div class="simpleCart_shelfItem">
-                <img src="" class="item_thumb"/>
-                <div class="row">
-                    <h5 class="item_name"></h5>
-                    <div class="simpleStore_getDetail_container">
-                        <span class="item_price"></span>
-                    </div>
-                    <div class="simpleStore_getDetail_container">
-                        <a class="button u-pull-right simpleStore_getDetail">Ver Produto</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- Procurar produtos -->
+    <script>
+        var totalProdutos =
+            `<img style="height: 4vh; transform: translate(0%, 10%);" src="lojinha.png" alt="carrinho">
+               COMPRAR MAIS!`;
     </script>
 
-    <!-- Product Detail View -->
-    <script id="product-detail-template" type="x-template">
-        <div class="simpleCart_shelfItem simpleStore_detailView">
-            <a href="#" class="close view_close">&times;</a>
+    <!-- Finalizar pedido -->
+    <script>
+        var comprarProdutos =
+            `<img style="height: 4vh; transform: translate(0%, 10%);" src="carrinho.png" alt="carrinho">
+                TOTAL: R$ 0.00`;
 
-            <div class="row">
-                <div class="four columns">
-                    <img src="" class="item_thumb"/>
-                </div>
-                <div class="eight columns">
-                    <h5 class="item_name"></h5>
-
-                    <p class="item_description"></p>
-                    <span class="item_price"></span>
-
-                    <div class="qty">
-                        <label>QTD</label>
-                        <input type="number" value="1" min="1" step="1" class="item_Quantity">
-                    </div>
-                    <div class="simpleStore_options"></div>
-                    <a class="item_add button u-pull-right" href="javascript:;">Adicionar ao Carrinho</a>
-                </div>
-            </div>
-        </div>
+        var finalPedido =
+            ``;
     </script>
 
-    <!-- Cart View -->
-    <script id="cart-template" type="x-template">
-        <div class="simpleStore_cart">
-            <h2>Carrinho de Doces</h2>
-            <a href="#" class="close">&times;</a>
-
-            <div class="row">
-                <div class="eight columns">
-                    <div class="simpleCart_items"></div>
-                    <a href="javascript:;" class="simpleCart_empty u-pull-left">Esvaziar Tudo <i class="fa fa-trash-o"></i></a>
-                </div>
-                <div class="four columns">
-                    <div class="cart_info">
-                        <div class="cart_info_item cart_itemcount">Itens:
-                            <div class="simpleCart_quantity"></div>
-                        </div>
-                        <div class="cart_info_item cart_shipping">Entrega:
-                            <div class="simpleCart_shipping"></div>
-                        </div>
-                        <div class="cart_info_item cart_total"><b>Total:
-                            <div class="simpleCart_grandTotal"></div>
-                        </b></div>
-                        <a href="javascript:;" class="button button-primary simpleStore_checkout u-pull-right">Checkout <i class="fa fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </script>
-
-    <!-- Error View -->
-    <script id="error-template" type="x-template">
-        <div class="error">
-            <b>Sorry, something went wrong :(</b>
-			<p class="error_text"></p>
-			<a href="#" class="close alert_close">&times;</a>
-        </div>
-    </script>
-
-<!-- End Document
-–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <script src="cleave.js"></script>
+    <script src="cleave-phone.br.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="script.js"></script>
 </body>
-
-<!-- Scripts
-–––––––––––––––––––––––––––––––––––––––––––––––––– -->
-<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
-<script src="js/simpleCart.min.js"></script>
-<script src="js/simpleStore.min.js"></script>
-
-<script src="js/config.js"></script>
 
 </html>

@@ -1,25 +1,94 @@
-{
-	"products" : [
-		{
-			"name" : "Brownie",
-			"price" : "5.80",
-			"options" : [
-				{ "Sabor" : "Normal (chocolate),Castanha de Caju,Doce de Leite" }
-			],
-			"image" : "https://upload.wikimedia.org/wikipedia/commons/b/bf/Browniezinho.jpg",
-			"description" : "Um famoso bolo de chocolate americano. Tem uma casquinha crocante por cima."
-		},
-		{
-			"name" : "Cupcake",
-			"price" : "6.20",
-			"options" : [
-				{ "Sabor" : "Branca,Chocolate,Churros" },
-				{ "Recheio" : "Sem,Chantily,Chocolate" },
-				{ "Cobertura" : "Sem,Chantily,Chocolate" },
-			    { "OneOfAKind" : true }
-			],
-			"image" : "https://upload.wikimedia.org/wikipedia/commons/d/dc/Cupcakezinho.jpg",
-			"description" : "Bolo de massa simples, com recheios diversos e coberturas à sua escolha."
-		}
-	]
-}
+[
+    {
+        "cupcakes":
+        {
+            "id": 0,
+            "title": "Cupcakes",
+            "image": "cupcakes.jpg",
+            "desc": "NULL",
+            "types": [
+                {
+                    "id": 0,
+                    "title": "Padrão",
+                    "desc": "Receita mais comum de cupcake.",
+                    "price": 4.50
+                }
+            ]
+        },
+        "brownies":
+        {
+            "id": 1,
+            "title": "Brownies",
+            "image": "brownies.jpg",
+            "desc": "NULL",
+            "types": [
+                {
+                    "id": 0,
+                    "title": "Padrão",
+                    "desc": "Receita mais comum de brownie.",
+                    "price": 5.50
+                }
+            ]
+        },
+        "bolos":
+        {
+            "id": 2,
+            "title": "Bolos",
+            "image": "bolos.jpg",
+            "desc": "NULL",
+            "types": [
+                {
+                    "id": 0,
+                    "title": "Padrão",
+                    "desc": "Receita mais comum de bolo.",
+                    "price": 50
+                }
+            ]
+        },
+        "cookies":
+        {
+            "id": 3,
+            "title": "Cookies",
+            "image": "cookies.jpg",
+            "desc": "NULL",
+            "types": [
+                {
+                    "id": 0,
+                    "title": "Padrão",
+                    "desc": "Receita mais comum de cookie.",
+                    "price": 50
+                }
+            ]
+        },
+        "macarons":
+        {
+            "id": 2,
+            "title": "Macarons",
+            "image": "macarons.jpg",
+            "desc": "NULL",
+            "types": [
+                {
+                    "id": 0,
+                    "title": "Padrão",
+                    "desc": "Receita mais comum de macaron.",
+                    "price": 50
+                }
+            ]
+        },
+        "ps5":
+        {
+            "id": 2,
+            "title": "Pfv, quero um PS5",
+            "image": "ps5.jpg",
+            "desc": "NULL",
+            "types": [
+                {
+                    "id": 0,
+                    "title": "Padrão",
+                    "desc": "Receita mais comum de PS5.",
+                    "price": 50
+                }
+            ]
+        }
+    }
+]

@@ -1,0 +1,87 @@
+@import url("anim.css");
+
+* {
+    font-family: Kreon;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #d19399;
+}
+
+.central {
+    margin: auto;
+    margin-top: 2vh;
+    padding: 10px;
+    text-align: center;
+}
+
+input,
+textarea {
+    border-radius: 10px;
+    margin-bottom: 2vh;
+    width: 50vw;
+    padding: 1vw;
+}
+
+input {
+    border-style: groove;
+}
+
+textarea {
+    height: 8vh;
+}
+
+#rotate {
+    transform-origin: center center;
+    -webkit-animation: rotation 2s linear infinite;
+    -moz-animation: rotation 2s linear infinite;
+    -ms-animation: rotation 2s linear infinite;
+}
+
+#carrinho-button {
+    margin-left: auto;
+    margin-right: 1vw;
+    background-color: #f6eec7;
+    height: fit-content;
+    width: fit-content;
+    padding: 2px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+#carrinho-button:selection {
+    animation-name: hide;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+}
+
+#wpp-button:hover {
+    animation-name: in;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+}
+
+#wpp-button:not(:hover) {
+    animation-name: out;
+    animation-duration: 0.4s;
+    animation-direction: forwards;
+}
+
+button {
+    background-color: #beebe9;
+    border-radius: 12px;
+    border: 0px solid #a658a6;
+    display: inline-block;
+    cursor: pointer;
+    color: black;
+    font-size: 20px;
+    padding: 18px 51px;
+    text-decoration: none;
+    box-shadow: 3px 4px 0px 0px #899599;
+}
+
+#main {
+}
