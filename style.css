@@ -2,10 +2,11 @@
 
 * {
     font-family: Kreon;
+    box-sizing: border-box;
 }
 
 body {
-    background-color: #dbaaaa;
+    background-color: #d19399;
 }
 
 .central {
@@ -41,7 +42,7 @@ textarea {
 #carrinho-button {
     margin-left: auto;
     margin-right: 1vw;
-    background-color: rgb(245, 208, 214);
+    background-color: #f6eec7;
     height: fit-content;
     width: fit-content;
     padding: 2px;
@@ -57,10 +58,6 @@ textarea {
     animation-fill-mode: forwards;
 }
 
-button {
-    cursor: pointer;
-}
-
 #wpp-button:hover {
     animation-name: in;
     animation-duration: 0.2s;
@@ -74,7 +71,7 @@ button {
 }
 
 button {
-    background-color: #ffb6b9;
+    background-color: #beebe9;
     border-radius: 12px;
     border: 0px solid #a658a6;
     display: inline-block;
@@ -84,4 +81,7 @@ button {
     padding: 18px 51px;
     text-decoration: none;
     box-shadow: 3px 4px 0px 0px #899599;
+}
+
+#main {
 }
